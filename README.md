@@ -1,45 +1,109 @@
 # iVerify
-Authentication and User Management Service
-Components:
 
-User Registration:
-Input: Email, password, and optional data like username, and profile picture.
-Process:
-Validate input data.
-Hash and store the password securely using algorithms like bcrypt.
-Store user data in the database.
-Send a verification email to confirm the user’s email address.
-User Login:
-Input: Email and password.
-Process:
-Verify credentials.
-Generate a JSON Web Token (JWT) or session token upon successful login.
-Provide token for accessing protected resources.
-Profile Management:
-Features:
-Allow users to update their profile information (e.g., name, profile picture).
-Change password feature with old password verification.
-Retrieve forgotten passwords using a password reset link sent to the user's email.
-Social Login Integration:
-Providers: Google, Facebook, etc.
-Process:
-Integrate with OAuth2.0 for social authentication.
-Manage token exchange and user data retrieval from social platforms.
-Handle linking social accounts to existing user profiles in your app.
-Security Considerations:
-Implement rate limiting for login attempts to prevent brute force attacks.
-Use HTTPS to ensure encrypted data transmission.
-Regularly update libraries and dependencies to patch vulnerabilities.
-Database Design:
-User Table: Stores user info like user ID, email, hashed password, and profile details.
-Sessions Table (Optional): Stores active session tokens if using session-based authentication instead of JWT.
+A comprehensive **Authentication and User Management Service** for modern applications.
 
-API Endpoints:
-POST /register: To handle new user registration.
-POST /login: For logging users in and generating authentication tokens.
-POST /logout: To invalidate tokens and end user sessions.
-GET /profile: To get the current user's profile details.
-PUT /profile: To update profile information.
-DELETE /account: To delete user accounts if supported.
+## 🚀 Features
 
-END
+### User Registration
+- **Input**: Email, password, and optional data (username, profile picture)
+- **Process**:
+  - Validate input data
+  - Hash and store password securely using bcrypt
+  - Store user data in database
+  - Send verification email to confirm user's email address
+
+### User Login
+- **Input**: Email and password
+- **Process**:
+  - Verify credentials
+  - Generate JWT or session token upon successful login
+  - Provide token for accessing protected resources
+
+### Profile Management
+- **Features**:
+  - Update profile information (name, profile picture)
+  - Change password with old password verification
+  - Password reset via email link for forgotten passwords
+
+### Social Login Integration
+- **Providers**: Google, Facebook, and more
+- **Process**:
+  - OAuth 2.0 integration for social authentication
+  - Token exchange and user data retrieval from social platforms
+  - Link social accounts to existing user profiles
+
+## 🔐 Security Considerations
+
+- **Rate Limiting**: Prevent brute force attacks on login attempts
+- **HTTPS**: Ensure encrypted data transmission
+- **Dependencies**: Regular updates to patch vulnerabilities
+- **Password Security**: Secure hashing with bcrypt
+
+## 📊 Database Design
+
+### User Table
+Stores essential user information:
+- User ID
+- Email
+- Hashed password
+- Profile details
+
+### Sessions Table (Optional)
+For session-based authentication:
+- Active session tokens
+- Session metadata
+
+## 🛠 API Endpoints
+
+### Authentication
+```http
+POST /register
+```
+Handle new user registration
+
+```http
+POST /login
+```
+User login and token generation
+
+```http
+POST /logout
+```
+Invalidate tokens and end user sessions
+
+### Profile Management
+```http
+GET /profile
+```
+Get current user's profile details
+
+```http
+PUT /profile
+```
+Update profile information
+
+```http
+DELETE /account
+```
+Delete user account (if supported)
+
+## 🏗 Architecture
+
+This service follows RESTful API principles and implements:
+- JWT-based authentication
+- Secure password hashing
+- Email verification workflows
+- Social OAuth integration
+- Session management
+
+## 📋 Getting Started
+
+1. Clone the repository
+2. Install dependencies
+3. Configure environment variables
+4. Set up database
+5. Run the application
+
+---
+
+*Built with security and scalability in mind* 🔒
